@@ -1,0 +1,252 @@
+// classes
+[data-bs-theme=light]
+    --bg: white
+    --T-bg-colour: hsla(210, 100%, 100%, 0.96 )
+    --common-colour: black
+    --accent: #8F2B00
+    --toAccent: invert(10%) sepia(67%) saturate(7379%) hue-rotate(39deg) brightness(102%) contrast(100%)
+
+    nav
+        & > * > * 
+            box-shadow: 0px 0px 15px 7px rgba(255, 255, 255, 0.75)
+
+    .nav-links
+        a
+            box-shadow: 0px 0px 15px 7px rgba(255, 255, 255, 0.75)
+
+[data-bs-theme=dark]
+    --bg: #212529
+    --T-bg-colour: hsla(210, 10.81%, 14.51%, 0.96 )
+    --common-colour: white
+    --accent: #CEA24E
+    $toWhite: invert(100%) sepia(93%) saturate(27%) hue-rotate(105deg) brightness(105%) contrast(112%)
+    --toAccent: invert(93%) sepia(63%) saturate(5063%) hue-rotate(315deg) brightness(85%) contrast(87%)
+
+    nav
+        & > * > * 
+            box-shadow: 0px 0px 15px 7px rgba(37, 37, 41, 0.75)
+        .search
+            &::after
+                filter: $toWhite
+                
+    .nav-links
+        a
+            &::before
+                filter: $toWhite
+    .svg-color
+        filter: $toWhite
+// 
+
+
+body
+    position: relative
+    overflow-x: hidden
+    height: 600vh
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-auto-rows: min-content
+
+header
+    margin-top: 2rem
+    grid-column: 2 / span 10
+    z-index: 1 !important
+    
+.brdr-clr
+    border-color: var(--common-colour) !important
+.txt-clr
+    color: var(--common-colour) !important
+    
+// nav
+//     width: min(1300px, 85%)    
+
+.nav-logo 
+    border-radius: 7.5px
+    img
+        padding: 10px
+        max-width: 160px
+
+nav
+    background: var(--T-bg-colour)
+
+    & > * > *
+        background: var(--bg)
+
+    .search
+        $padding: 1rem
+        position: relative
+        height: 3.5rem
+        // padding: $padding
+        border-radius: .5rem
+        &::after
+            content: url(../assets/icons/search.svg)
+            position: absolute
+            right: $padding
+            top: 55%
+            right: 1rem
+            transform: translateY(-50%) scale(.8)
+            transition: right ease-in-out 200ms
+            pointer-events: none
+        &:has(input:focus, input:hover)
+            &::after
+                right: 2rem
+            
+            
+        &:has(*:focus)
+            border-color: var(--accent) !important
+        &:hover
+            &.brdr-clr
+                border-color: var(--accent) !important
+            
+
+        input
+            border-radius: inherit
+            background: transparent
+            outline: none
+            font-size: 2rem
+
+.cart.p, .profile.p
+    height: 3.5rem
+    aspect-ratio: 1
+
+    
+.profile:hover, .cart:hover
+    cursor: pointer
+    &.brdr-clr
+        border-color: var(--accent) !important
+    img
+        filter: var(--toAccent)
+
+.nav-links
+    a
+        font-family: 'Red Hat Text', sans-serif
+        text-decoration: none
+        font-size: 20px
+        font-style: normal
+        font-weight: 400
+        line-height: 16.9px
+        display: flex
+        align-items: center 
+        gap: 1ch
+        padding: 1rem
+        &:hover
+            color: var(--accent) !important
+            &::before
+                filter: var(--toAccent)
+        &::before
+            transform: scale(1.25)
+        &:nth-child(1)::before
+            content: url(../assets/icons/box.svg)
+            display: inline-block
+        &:nth-child(2)::before
+            content: url(../assets/icons/book.svg)
+        &:nth-child(3)::before
+            content: url(../assets/icons/cup.svg)
+        &:nth-child(4)::before
+            content: url(../assets/icons/bell.svg)
+        &:nth-child(5)::before
+            content: url(../assets/icons/clock.svg)
+        &:nth-child(6)::before
+            content: url(../assets/icons/dice.svg)
+        &:nth-child(7)::before
+            content: url(../assets/icons/people.svg)
+        &:nth-child(8)::before
+            content: url(../assets/icons/questioncircle.svg)
+
+
+main
+    margin-top: 5rem
+    grid-column: 2 / span 10
+    padding: 1.5rem
+
+.front-display
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
+    grid-template-rows: repeat(5, 70px)
+    gap: 1.5rem
+    *
+        background: #000
+        &:nth-child(1)
+            grid-area: span 5 / span 4
+        &:nth-child(2)
+            grid-area: span 2 / span 2
+        &:nth-child(3)
+            grid-area: span 2 / span 2
+        &:nth-child(4)
+            grid-area: span 5 / span 2
+        &:nth-child(5)
+            grid-area: span 3 / span 4
+
+.cartPlace
+    position: fixed
+    right: 0
+    z-index: 4
+    height: 100vh
+    background: #000
+    transition: transform 300ms
+    width: 400px
+    &[data-cartOpen="true"]
+        box-shadow: 0px 0px 15px 7px rgba(255, 255, 255, 0.75)
+        transform: translateX(0)
+
+    &[data-cartOpen="false"]
+        transform: translateX(100%)
+        box-shadow: none
+
+// has the minimum styling for function
+.carouselWrapper
+    margin-top: 5rem
+    width: 100%
+    height: 250px
+    display: flex
+    gap: 1rem
+    display: grid
+    grid-template-columns: min-content 1fr min-content
+
+    .book
+        width: 100%
+        height: 100%
+        background: #000
+    
+    .items
+        background: transparent
+        display: grid
+        grid-template-columns: repeat(var(--items), clamp(50px, 20vw, 250px))
+        width: 100%
+        overflow-x: scroll
+        &::-webkit-scrollbar
+            width: 0
+            height: 0
+            
+    [data-arrow]
+        font-size: 4rem
+        color: white
+        height: 100%
+        display: flex
+        align-items: center
+        text-align: center
+        position: relative
+        border: none
+        background: transparent
+
+    [data-arrow="1"]::after
+        // content: url(../assets/icons/right-arrow.png)
+        position: absolute
+        text-align: center
+        left: 50%
+        top: 50%
+        width: 45px
+        height: 45px
+        background: purple
+
+    
+    [data-arrow="-1"]::after
+        // content: url(../assets/icons/right-arrow.png)
+        
+        position: absolute
+        text-align: center
+        left: 50%
+        top: 50%
+        width: 45px
+        height: 45px
+        background: purple
+            

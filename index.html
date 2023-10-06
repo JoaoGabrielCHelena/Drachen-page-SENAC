@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drachen</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/index.js" defer></script>
+    <script src="js/scrollCarousel.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body data-bs-theme="light">
+    <header class="sticky-top ">
+        <nav class="p-4 mt-5 rounded-5 brdr-clr border-2 border">
+            <div class="d-flex justify-content-around align-items-center">
+                <a class="nav-logo"><img src="assets/images/drachen.png" alt="Drachen"></a>
+                <div class="search w-75 brdr-clr border-2 border"><input class="h-100 w-100 border-0" type="search" name="" id=""></div>
+                <div class="cart p d-flex rounded-circle brdr-clr border-2 border align-items-center justify-content-center"><img class="svg-color" src="assets/icons/Cart.svg" alt="Cart"></div>
+                <a class="rounded-circle" href="#">
+                    <div class="profile p d-flex rounded-circle brdr-clr border-2 border align-items-center justify-content-center"><img class="svg-color" src="assets/icons/Person.svg" alt="Profile"></div>
+                </a>
+            </div>
+            <div class="nav-links d-flex justify-content-around mt-4">
+                <a class="bg-body txt-clr" href="#">Coleções<br>Especiais</a>
+                <a class="bg-body txt-clr" href="#">Livros</a>
+                <a class="bg-body txt-clr" href="#">Mimos</a>
+                <a class="bg-body txt-clr" href="#">Eventos</a>
+                <a class="bg-body txt-clr" href="#">Pré-Venda</a>
+                <a class="bg-body txt-clr" href="#">Jogos</a>
+                <a class="bg-body txt-clr" href="#">Clubes</a>
+                <a class="bg-body txt-clr" href="#">Ajuda</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="front-display">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="carouselWrapper" data-perfectFit="true" data-itemsToScroll="">
+            <button data-arrow="-1"></button>
+            <div class="items">
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+                <div class="book"></div>
+            </div>
+            <button data-arrow="1"></button>
+        </div>
+    </main>
+    <div class="cartPlace" data-cartOpen="false"></div>
+</body>
+</html>
